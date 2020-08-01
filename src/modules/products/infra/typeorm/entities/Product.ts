@@ -17,7 +17,7 @@ class Product {
   @Column()
   name: string;
 
-  @Column('double precision')
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
 
   @Column('int')

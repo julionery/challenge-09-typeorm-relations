@@ -20,9 +20,7 @@ class OrdersProducts {
   @JoinColumn({ name: 'order_id' })
   order: Order;
 
-  @ManyToOne(() => Product, (product: Product) => product.order_products, {
-    cascade: true,
-  })
+  @ManyToOne(() => Product, (product: Product) => product.order_products)
   @JoinColumn({ name: 'product_id' })
   product: Product;
 
@@ -32,7 +30,7 @@ class OrdersProducts {
   @Column()
   order_id: string;
 
-  @Column('double precision')
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
 
   @Column('int')
